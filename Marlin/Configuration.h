@@ -44,15 +44,16 @@
 //===========================================================================
 
 //// Thermistor settings:
-// 1 is 100k thermistor
+// 1 is 100k thermistor  /xmas huxley hot end with 4.7K resistor
 // 2 is 200k thermistor
 // 3 is mendel-parts thermistor
 // 4 is 10k thermistor
 // 5 is ParCan supplied 104GT-2 100K
 // 6 is EPCOS 100k
 // 7 is 100k Honeywell thermistor 135-104LAG-J01
-// 8 is reprappro xmas huxley (RS thermistor 198-961)
-// 9 is reprappro xmas huxley (100k EPCOS)
+// 8 is reprappro xmas huxley hot end (RS thermistor 198-961)
+// 9 is reprappro xmas huxley bed with 10K resistor (100k EPCOS)
+// 10 is reprappro xmas huxley hot end with 4.7K resistor (RS thermistor 198-961)
 
 #define THERMISTORHEATER_0 8
 //#define THERMISTORHEATER_1 1
@@ -187,6 +188,8 @@
 //===========================================================================
 //=============================Mechanical Settings===========================
 //===========================================================================
+#define PROBE_PIN          29    //A2
+#define Z_INCREMENT .0040   //Probe Movement Increment - 1 Full step on Huxley = 1/250
 
 
 // Endstop Settings
