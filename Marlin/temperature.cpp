@@ -852,12 +852,12 @@ ISR(TIMER0_COMPB_vect)
        if(current_raw[e] >= maxttemp[e]) {
           target_raw[e] = 0;
           max_temp_error(e);
-          kill();;
+          //kill();;
        }
        if(current_raw[e] <= minttemp[e]) {
           target_raw[e] = 0;
           min_temp_error(e);
-          kill();
+          //kill();
        }
     }
   

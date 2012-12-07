@@ -25,7 +25,12 @@
 #include <string.h>
 #include <inttypes.h>
 #include "wiring.h"
+#undef double
+#undef int
+#undef round
+
 #include "wiring_private.h"
+
 
 // this next line disables the entire HardwareSerial.cpp, 
 // this is so I can support Attiny series and any other chip without a uart
@@ -288,12 +293,13 @@ void MarlinSerial::checkRx()
 }
 
 
-void MarlinSerial::write(uint8_t c)
+size_t MarlinSerial::write(uint8_t c)
 {
   while (!((*_ucsra) & (1 << _udre)))
     ;
 
   *_udr = c;
+  return 0;
 }
 
 // Preinstantiate Objects //////////////////////////////////////////////////////

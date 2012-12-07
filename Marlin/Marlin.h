@@ -27,7 +27,7 @@
 
 #if ARDUINO >= 100 
   #if defined(__AVR_ATmega644P__) || defined (__AVR_ATmega1284P__)
-    #include "WProgram.h"
+    #include "Arduino.h"
   #else
     #include "Arduino.h"
   #endif

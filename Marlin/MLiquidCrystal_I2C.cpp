@@ -7,7 +7,7 @@
 
 #include "MLiquidCrystal_I2C.h"
 #include <inttypes.h>
-#include "WProgram.h" 
+#include "Arduino.h" 
 #include "Wire.h"
 
 
@@ -222,8 +222,9 @@ inline void LiquidCrystal_I2C::command(uint8_t value) {
 	send(value, 0);
 }
 
-inline void LiquidCrystal_I2C::write(uint8_t value) {
+inline size_t LiquidCrystal_I2C::write(uint8_t value) {
 	send(value, Rs);
+        return 0;
 }
 
 
@@ -245,7 +246,7 @@ void LiquidCrystal_I2C::write4bits(uint8_t value) {
 
 void LiquidCrystal_I2C::expanderWrite(uint8_t _data){                                        
 	Wire.beginTransmission(_Addr);
-	Wire.send((int)(_data) | _backlightval);
+	Wire.write((int)(_data) | _backlightval);
 	Wire.endTransmission();   
 }
 

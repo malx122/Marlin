@@ -489,7 +489,7 @@
 /*#define PROBE_PIN          11*/
 
 #define LED_PIN            27
-#define BUZZER_PIN         28
+/*#define BUZZER_PIN         28*/
 
 #define FAN_PIN            -1 
 
