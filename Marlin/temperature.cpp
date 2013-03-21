@@ -817,7 +817,8 @@ ISR(TIMER0_COMPB_vect)
       current_raw[0] = raw_temp_0_value;
     #else
       current_raw[0] = 16383 - raw_temp_0_value;
-    #endif
+      SERIAL_ECHOLN(raw_temp_0_value);  
+     #endif
 
 #if EXTRUDERS > 1    
     #ifdef HEATER_1_USES_AD595 || defined HEATER_0_USES_MAX6675
@@ -839,6 +840,7 @@ ISR(TIMER0_COMPB_vect)
       current_raw_bed = raw_temp_bed_value;
     #else
       current_raw_bed = 16383 - raw_temp_bed_value;
+      SERIAL_ECHOLN(raw_temp_bed_value);  
     #endif
     
     temp_meas_ready = true;
@@ -851,12 +853,12 @@ ISR(TIMER0_COMPB_vect)
     for(unsigned char e = 0; e < EXTRUDERS; e++) {
        if(current_raw[e] >= maxttemp[e]) {
           target_raw[e] = 0;
-          max_temp_error(e);
+          //max_temp_error(e);
           //kill();;
        }
        if(current_raw[e] <= minttemp[e]) {
           target_raw[e] = 0;
-          min_temp_error(e);
+          //min_temp_error(e);
           //kill();
        }
     }
